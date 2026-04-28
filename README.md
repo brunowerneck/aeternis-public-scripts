@@ -20,6 +20,15 @@ O mesmo que o `secure_vps.sh`, mas focado em ambientes que utilizarão o **Easyp
 - **O que faz:**
   - Todas as etapas do script de segurança básico.
   - Instalação automática do **Easypanel**.
+  - Libera a porta 3000 no UFW.
+  - Exibe o IP público e o link de acesso ao painel ao final.
+
+### 3. `secure_vps_coolify.sh`
+O mesmo que o `secure_vps.sh`, mas focado em ambientes que utilizarão o **Coolify**.
+- **O que faz:**
+  - Todas as etapas do script de segurança básico.
+  - Instalação automática do **Coolify**.
+  - Libera a porta 8000 no UFW.
   - Exibe o IP público e o link de acesso ao painel ao final.
 
 ## 🛠️ Como Usar
