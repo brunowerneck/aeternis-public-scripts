@@ -4,9 +4,12 @@ Uma coleção de scripts públicos da Aeternis para automação, configuração 
 
 ## 🚀 Scripts Disponíveis
 
-Atualmente, o repositório conta com os seguintes scripts na pasta `bash/setup/`:
+Atualmente, o repositório conta com os seguintes scripts organizados por finalidade:
 
-### 1. `secure_vps.sh`
+### ⚙️ Configuração (Setup)
+Localizados na pasta `bash/setup/`:
+
+#### 1. `secure_vps.sh`
 Script básico de endurecimento (hardening) para servidores Ubuntu/Debian.
 - **O que faz:**
   - Atualiza o sistema (`apt update && upgrade`).
@@ -15,7 +18,7 @@ Script básico de endurecimento (hardening) para servidores Ubuntu/Debian.
   - Define o fuso horário para `America/Sao_Paulo`.
   - Configura atualizações de segurança automáticas (`unattended-upgrades`).
 
-### 2. `secure_vps_easypanel.sh`
+#### 2. `secure_vps_easypanel.sh`
 O mesmo que o `secure_vps.sh`, mas focado em ambientes que utilizarão o **Easypanel**.
 - **O que faz:**
   - Todas as etapas do script de segurança básico.
@@ -23,7 +26,7 @@ O mesmo que o `secure_vps.sh`, mas focado em ambientes que utilizarão o **Easyp
   - Libera a porta 3000 no UFW.
   - Exibe o IP público e o link de acesso ao painel ao final.
 
-### 3. `secure_vps_coolify.sh`
+#### 3. `secure_vps_coolify.sh`
 O mesmo que o `secure_vps.sh`, mas focado em ambientes que utilizarão o **Coolify**.
 - **O que faz:**
   - Todas as etapas do script de segurança básico.
@@ -31,15 +34,35 @@ O mesmo que o `secure_vps.sh`, mas focado em ambientes que utilizarão o **Cooli
   - Libera a porta 8000 no UFW.
   - Exibe o IP público e o link de acesso ao painel ao final.
 
+### 🔧 Utilitários & Manutenção
+
+#### Easypanel (pasta `bash/easypanel/`):
+- **`reset_password.sh`**: Script interativo para redefinir a senha do administrador do Easypanel.
+  - **O que faz:** Verifica se o Docker está ativo e executa a imagem oficial do Easypanel com os volumes necessários em modo interativo.
+
+#### Coolify (pasta `bash/coolify/`):
+- **`reset_password.sh`**: Script interativo para redefinir a senha do usuário administrador (root) do Coolify.
+  - **O que faz:** Verifica se o Docker está ativo e se o contêiner `coolify` está em execução, executando o comando Artisan interno de forma interativa.
+
 ## 🛠️ Como Usar
 
 Para executar qualquer um dos scripts, você pode baixar e rodar diretamente no seu servidor como root:
 
 ```bash
-# Exemplo para o script secure_vps.sh
+# Exemplo para executar o script de segurança (secure_vps.sh)
 curl -O https://raw.githubusercontent.com/seu-usuario/aeternis-public-scripts/main/bash/setup/secure_vps.sh
 chmod +x secure_vps.sh
 sudo ./secure_vps.sh
+
+# Exemplo para redefinir a senha do Easypanel (reset_password.sh)
+curl -O https://raw.githubusercontent.com/seu-usuario/aeternis-public-scripts/main/bash/easypanel/reset_password.sh
+chmod +x reset_password.sh
+sudo ./reset_password.sh
+
+# Exemplo para redefinir a senha do Coolify (reset_password.sh)
+curl -O https://raw.githubusercontent.com/seu-usuario/aeternis-public-scripts/main/bash/coolify/reset_password.sh
+chmod +x reset_password.sh
+sudo ./reset_password.sh
 ```
 
 > [!IMPORTANT]
